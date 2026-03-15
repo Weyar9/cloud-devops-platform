@@ -1,0 +1,34 @@
+name: CI Pipeline
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  validate-project:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Show project structure
+        run: ls -R
+
+      - name: Validate Terraform files
+        run: |
+          test -f terraform/main.tf
+          test -f terraform/variables.tf
+          test -f terraform/outputs.tf
+
+      - name: Validate Kubernetes files
+        run: |
+          test -f kubernetes/deployment.yaml
+          test -f kubernetes/service.yaml
+
+      - name: Validate app file
+        run: test -f app/index.html
