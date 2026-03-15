@@ -9,10 +9,44 @@ The platform automates infrastructure provisioning, container image builds, and 
 
 ## Architecture
 
-Developer pushes code to GitHub  
-GitHub Actions builds Docker image  
-Docker image pushed to container registry  
-Kubernetes deploys application automatically
+## Deployment Workflow
+
+1. Developer pushes code to GitHub
+2. GitHub Actions triggers CI pipeline
+3. Docker image is built automatically
+4. Image is pushed to container registry
+5. Kubernetes deploys the application
+
+## How to Run
+
+Clone the repository
+
+git clone https://github.com/Weyar9/cloud-devops-platform.git
+
+Initialize Terraform
+
+terraform init
+
+Apply infrastructure
+
+terraform apply
+
+Deploy to Kubernetes
+
+kubectl apply -f kubernetes/
+
+## Future Improvements
+
+Add monitoring with Prometheus and Grafana  
+Implement Helm charts for Kubernetes deployment  
+Add automated security scanning in CI pipeline  
+Deploy to AWS or Google Cloud
+
+## Contact
+
+Mohamed Asker  
+MEng Computing Engineering  
+Cloud DevOps and Data Engineering
 
 ## Technologies
 
